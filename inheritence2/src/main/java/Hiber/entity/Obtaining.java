@@ -1,17 +1,31 @@
 package Hiber.entity;
 
 import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Obtaining {
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	int id;
+	
 	private String recipent;
 	@Column(name = "phoneF_number")
 	private String phoneNumber;
 
 	public Obtaining() {
 
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public String getRecipent() {
@@ -32,7 +46,6 @@ public abstract class Obtaining {
 
 	@Override
 	public String toString() {
-		return "Obtaining [recipent=" + recipent + ", phoneNumber=" + phoneNumber + "]";
+		return "Obtaining [id=" + id + ", recipent=" + recipent + ", phoneNumber=" + phoneNumber + "]";
 	}
-
 }

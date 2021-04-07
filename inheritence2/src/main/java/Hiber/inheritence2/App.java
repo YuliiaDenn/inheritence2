@@ -34,8 +34,7 @@ public class App {
 		session = HibernateUtil.getSessionFactory().getCurrentSession();
 		transaction = session.beginTransaction();
 	
-		System.out.println(session.createQuery("select d from Delivery d").list());
-		System.out.println(session.createQuery("select s from SelfPickup s").list());
+		System.out.println(session.createQuery("select o from Obtaining o").list());
 
 		transaction.commit();
 		HibernateUtil.close();
