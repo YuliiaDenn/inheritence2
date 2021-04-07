@@ -1,11 +1,11 @@
 package Hiber.entity;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@DiscriminatorColumn(name = "D")
+@Table(name = "DELIVERY")
 public class Delivery extends Obtaining {
 
 	private String region;
